@@ -45,6 +45,25 @@ function addBookCard(id) {
     if (myLibrary[id].read) {
         newCard.className = 'book-card read'
     }
+    
+    newCard.querySelector('.remove-button').cardId = id;
+    newCard.querySelector('.read-button').cardId = id;
+    newCard.querySelector('.read-button').addEventListener('click', toggleRead)
+    newCard.querySelector('.remove-button').addEventListener('click', removeCard)
         
     libraryWrapper.appendChild(newCard)
+}
+
+function toggleRead(e){    
+    if (document.getElementById(e.target.cardId).className == 'book-card') {
+        document.getElementById(e.target.cardId).className = 'book-card read'
+        myLibrary[e.target.cardId].read = true;
+    } else {
+        document.getElementById(e.target.cardId).className = 'book-card'
+        myLibrary[e.target.cardId].read = false;
+    }
+}
+
+function removeCard(){
+
 }
