@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" async></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <form onsubmit="validateForm(event);">
+                <label for="title"> Title: <br>
+                    <input type="text" id="title">
+                </label>
+                <label for="author"> Author: <br>
+                    <input type="text" id="author">
+                </label>
+                <label for="pages"> Number of pages: <br>
+                    <input type="tel" id="pages">
+                </label>
+                <label for="read"> Read:
+                    <input type="checkbox" id="read">
+                </label>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <div class="title">
+            <div class="title-wrapper">
+                <h1>The Library</h1>
+                <div class="details">
+                    <div>Total Entries: <span class="total">0</span></div>
+                    <div>Read: <span class="read">0</span></div>
+                    <div>Not Read: <span class="not-read">0</span></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="library">
+            
+        </div>
+    </div>    
+</body>
+</html>
