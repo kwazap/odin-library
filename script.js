@@ -15,7 +15,7 @@ function validateForm(event) {
 
 let myLibrary = []
 
-function Book() {
+function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -52,6 +52,7 @@ function addBookCard(id) {
     newCard.querySelector('.remove-button').addEventListener('click', removeCard)
         
     libraryWrapper.appendChild(newCard)
+
 }
 
 function toggleRead(e){    
@@ -67,3 +68,20 @@ function toggleRead(e){
 function removeCard(e) {
     document.getElementById(e.target.cardId).remove()
 }
+
+function manualAdd(title, author, pages, read) {
+    const bookInstance = new Book(title, author, pages, read)
+    libId = myLibrary.push(bookInstance) - 1
+
+    addBookCard(libId)
+}
+
+function updateEntries(plusOrMinus) {
+
+}
+
+
+
+manualAdd('Solaris', 'Stanislaw Lem', 204, false)
+manualAdd('Roadside Picnic', 'Arkady & Boris Strugatsky', 224, false)
+manualAdd('Neuromancer', 'William Gibson', 271, false)
