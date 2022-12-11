@@ -59,6 +59,7 @@ input[type=text], input[type=tel] {
     background-color: white;
     border-radius: 8px;
     box-shadow: rgb(150, 150, 150) 4px 4px 10px;
+    border-left: 8px red solid;
 }
 
 h3 {
@@ -77,3 +78,6 @@ h3 {
     grid-template-columns: repeat(auto-fit, 200px);
 }
 
+.read {
+    border-left: 8px green solid;
+}

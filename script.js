@@ -42,6 +42,9 @@ function addBookCard(id) {
     newCard.querySelector('.book-title').textContent = myLibrary[id].title
     newCard.querySelector('.book-author').textContent = myLibrary[id].author
     newCard.querySelector('.book-pages').textContent = myLibrary[id].pages
-
+    if (myLibrary[id].read) {
+        newCard.className = 'book-card read'
+    }
+        
     libraryWrapper.appendChild(newCard)
 }
