@@ -5,6 +5,7 @@ let bookRead = document.querySelector('input[type=checkbox]')
 let libraryWrapper = document.querySelector('.library-wrapper')
 let defaultCard = document.querySelector('#default')
 libraryWrapper.removeChild(defaultCard)
+document.querySelector('form > button').addEventListener('click', addBookToLibrary)
 
 
 
