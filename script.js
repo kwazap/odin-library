@@ -2,6 +2,9 @@ let bookTitle = document.querySelector('input[id=title]')
 let bookAuthor = document.querySelector('input[id=author]')
 let bookNumberOfPages = document.querySelector('input[type=tel]')
 let bookRead = document.querySelector('input[type=checkbox]')
+let libraryWrapper = document.querySelector('.library-wrapper')
+let defaultCard = document.querySelector('#default')
+libraryWrapper.removeChild(defaultCard)
 
 
 
@@ -26,5 +29,18 @@ function addBookToLibrary() {
     pages = bookNumberOfPages.value
     read = bookRead.checked
     const bookInstance = new Book(title, author, pages, read)
-    myLibrary.push(bookInstance)
+    libId = myLibrary.push(bookInstance) - 1
+
+    addBookCard(libId)
+}
+
+function addBookCard(id) {
+    newCard = defaultCard.cloneNode(true)
+    newCard.id = id
+
+    newCard.querySelector('.book-title').textContent = myLibrary[id].title
+    newCard.querySelector('.book-author').textContent = myLibrary[id].author
+    newCard.querySelector('.book-pages').textContent = myLibrary[id].pages
+
+    libraryWrapper.appendChild(newCard)
 }
