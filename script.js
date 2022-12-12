@@ -52,21 +52,26 @@ function addBookCard(id) {
     newCard.querySelector('.remove-button').addEventListener('click', removeCard)
         
     libraryWrapper.appendChild(newCard)
-
+    updateEntries(1, id)
 }
 
 function toggleRead(e){    
     if (document.getElementById(e.target.cardId).className == 'book-card') {
         document.getElementById(e.target.cardId).className = 'book-card read'
         myLibrary[e.target.cardId].read = true
+        document.querySelector('.details-read').textContent = Number(document.querySelector('.details-read').textContent) + 1
+        document.querySelector('.details-not-read').textContent = Number(document.querySelector('.details-not-read').textContent) - 1
     } else {
         document.getElementById(e.target.cardId).className = 'book-card'
         myLibrary[e.target.cardId].read = false
+        document.querySelector('.details-read').textContent = Number(document.querySelector('.details-read').textContent) - 1
+        document.querySelector('.details-not-read').textContent = Number(document.querySelector('.details-not-read').textContent) + 1
     }
 }
 
 function removeCard(e) {
     document.getElementById(e.target.cardId).remove()
+    updateEntries(0, e.target.cardId)
 }
 
 function manualAdd(title, author, pages, read) {
@@ -76,8 +81,22 @@ function manualAdd(title, author, pages, read) {
     addBookCard(libId)
 }
 
-function updateEntries(plusOrMinus) {
-
+function updateEntries(plusOrMinus, id) {
+    if (plusOrMinus) {
+        document.querySelector('.details-total').textContent = Number(document.querySelector('.details-total').textContent) + 1
+        if (myLibrary[id].read) {
+            document.querySelector('.details-read').textContent = Number(document.querySelector('.details-read').textContent) + 1
+        } else {
+            document.querySelector('.details-not-read').textContent = Number(document.querySelector('.details-not-read').textContent) + 1
+        }
+    } else {
+        document.querySelector('.details-total').textContent = Number(document.querySelector('.details-total').textContent) - 1
+        if (myLibrary[id].read) {
+            document.querySelector('.details-read').textContent = Number(document.querySelector('.details-read').textContent) - 1
+        } else {
+            document.querySelector('.details-not-read').textContent = Number(document.querySelector('.details-not-read').textContent) - 1
+        }       
+    }
 }
 
 
